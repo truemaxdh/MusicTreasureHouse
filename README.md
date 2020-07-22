@@ -14,3 +14,7 @@ My composed music cloud
 [coin1.mp3](/MusicCloud/SFX/DoodleFlight/coin1.mp3)
 [coin2.mp3](/MusicCloud/SFX/DoodleFlight/coin2.mp3)
 [coin3.mp3](/MusicCloud/SFX/DoodleFlight/coin3.mp3)
+
+## Light of Night
+[LightOfNight.song](/MusicCloud/LightOfNight/LightOfNight.song)
+[LightOfNight.mp3](/MusicCloud/LightOfNight/Mixdown.mp3)
