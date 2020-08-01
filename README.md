@@ -21,6 +21,6 @@ My composed music cloud
 
 
 ## Some Quiet Afternoon
-[SomeQuietAfternoon.mscz]/MusicCloud/SomeQuietAfternoon/SomeQuietAfternoon.mscz
-[SomeQuietAfternoon.mxl]/MusicCloud/SomeQuietAfternoon/SomeQuietAfternoon.mxl
-[SomeQuietAfternoon.mp3]/MusicCloud/SomeQuietAfternoon/SomeQuietAfternoon.mp3
+[SomeQuietAfternoon.mscz](/MusicCloud/SomeQuietAfternoon/SomeQuietAfternoon.mscz)
+[SomeQuietAfternoon.mxl](/MusicCloud/SomeQuietAfternoon/SomeQuietAfternoon.mxl)
+[SomeQuietAfternoon.mp3](/MusicCloud/SomeQuietAfternoon/SomeQuietAfternoon.mp3)
