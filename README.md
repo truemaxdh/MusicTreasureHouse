@@ -18,3 +18,9 @@ My composed music cloud
 ## Light of Night
 [LightOfNight.song](/MusicCloud/LightOfNight/LightOfNight.song)
 [LightOfNight.mp3](/MusicCloud/LightOfNight/LightOfNight.mp3)
+
+
+## Some Quiet Afternoon
+[SomeQuietAfternoon.mscz]/MusicCloud/SomeQuietAfternoon/SomeQuietAfternoon.mscz
+[SomeQuietAfternoon.mxl]/MusicCloud/SomeQuietAfternoon/SomeQuietAfternoon.mxl
+[SomeQuietAfternoon.mp3]/MusicCloud/SomeQuietAfternoon/SomeQuietAfternoon.mp3
