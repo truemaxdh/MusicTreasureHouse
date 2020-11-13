@@ -1,7 +1,7 @@
 <html>
   <head>
     <script>
-      var list = [];
+      var list = [][];
       window.onload = function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -13,7 +13,7 @@
               var lines = tmp.split("\n");
               for (var i = 0; i < lines.length; i++) {
                 if (lines[i].indexOf("## ") == 0) {
-                  list.push(lines[i].substring(3));
+                  list.push([lines[i].substring(3)]);
                 } else if (lines[i].indexOf(".mp3") > 0) {
                   list[list.length - 1].push(lines[i].substring(lines[i].indexOf(".mp3") + 6, lines[i].length - 1)) 
                 }
