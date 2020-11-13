@@ -2,13 +2,15 @@
   <head>
     <script>
       var list = [];
+      var sounds = []; // sounds
+      var curSndId = [0, 0];
       window.onload = function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4) {
             if (this.status == 200) {
               
-              // TEST
+              // get list
               var tmp = this.responseText;
               var lines = tmp.split("\n");
               for (var i = 0; i < lines.length; i++) {
@@ -18,25 +20,13 @@
                   list[list.length - 1].push(lines[i].substring(lines[i].indexOf(".mp3") + 6, lines[i].length - 1)) 
                 }
               }
-              /*
-              tmp = tmp.replace(/#### /g,"\" ,\"Desc\": \"");
-              tmp = tmp.replace(/### /g,"\" ,\"ShortDesc\": \"");
-              tmp = tmp.replace(/] /g,"\" ,\"Title\":\"");
-              tmp = tmp.replace(/## \[/g," {\"Genre\": \"");
-
-              tmp = tmp.replace(/\[/g,"\", \"");
-              tmp = tmp.replace(/]\(/g,"\": \"");
-              tmp = tmp.replace(/\)/g,"");
               
-              tmp = tmp.replace(/___/g,"\" },\n");
-              
-              tmp = tmp.replace(/# Coding SketchbookMy coding log.---/g, "{ \"AppList\":[\n");
-              
-              tmp += "\" }]}";                  
-              */
               console.log(tmp);
               console.log(lines);
               console.log(list);
+              
+              showList();
+              loadSound();
               
             } else {
               alert("failed to load data");
@@ -47,8 +37,47 @@
         xhttp.open("GET", "/MusicCloud/README.md", true);
         xhttp.send();
       }
+      
+      function showList() {
+        var board = document.getElementById("board");
+        var strHtml = "<ul>";
+        for (var i = 0; i < list.length; i++) {
+          strHtml += "<li>" + list[i][0] + "<ul>";
+          for (var j = 1; j < list[i].length; j++) {
+            strHtml += "<li>" + list[i][j] + "</li>";
+          }
+          strHtml += "</ul></li>";
+        }
+        strHtml += "</ul>";
+        board.innerHTML = strHtml;
+      }
+      
+      function loadSound() {
+        for (var i = 0; i < list.length; i++) {
+          sounds.push([]);
+          for (var j = 1; j < list[i].length; j++) {
+            sounds[i].push(new Audio(list[i][j]));
+            sounds[i][j].volumn = 0.3;
+            sounds[i][j].onended = function() {
+              if (++curSndId[1] >= sounds[curSndId[0]].length) {
+                curSndId[1] = 0;
+                curSndId[0]++;
+                if (curSndId[0] >= sounds.length) {
+                  curSndId[0] = 0;
+                }
+              }
+              
+              sounds[curSndId[0]][curSndId[1]].currentTime = 0;
+              sounds[curSndId[0]][curSndId[1]].play();
+            }
+          }
+        }
+        
+        sounds[0][0].play();
+      }
     </script>
   </head>
   <body>
+    <div id="board"></div>
   </body>
 </html>
