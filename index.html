@@ -9,8 +9,9 @@
               
               // TEST
               var tmp = this.responseText;
+              var lines = tmp.split("\n");
+              
               /*
-              tmp = tmp.replace(/\n/g, "");
               tmp = tmp.replace(/#### /g,"\" ,\"Desc\": \"");
               tmp = tmp.replace(/### /g,"\" ,\"ShortDesc\": \"");
               tmp = tmp.replace(/] /g,"\" ,\"Title\":\"");
@@ -27,6 +28,7 @@
               tmp += "\" }]}";                  
               */
               console.log(tmp);
+              console.log(lines);
               
             } else {
               alert("failed to load data");
