@@ -57,8 +57,8 @@
           sounds.push([]);
           for (var j = 1; j < list[i].length; j++) {
             sounds[i].push(new Audio(list[i][j]));
-            sounds[i][j].volumn = 0.3;
-            sounds[i][j].onended = function() {
+            sounds[i][j - 1].volumn = 0.3;
+            sounds[i][j - 1].onended = function() {
               if (++curSndId[1] >= sounds[curSndId[0]].length) {
                 curSndId[1] = 0;
                 curSndId[0]++;
