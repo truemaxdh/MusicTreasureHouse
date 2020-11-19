@@ -79,10 +79,20 @@
       function startPlay() {
         sounds[0][0].play();
       }
+      
+      function startPlay2() {
+        var player = document.getElementById("player");
+        player.src = sounds[0][0];
+        player.play();
+      }
     </script>
   </head>
   <body>
     <div id="board"></div>
+    <div>
+       <audio id="player" controls />
+    </div>
     <button onclick="startPlay()">Start Play</button>
+    <button onclick="startPlay2()">Start Play2</button>
   </body>
 </html>
