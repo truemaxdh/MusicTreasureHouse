@@ -88,13 +88,15 @@
       }
       
       function playNext() {
-        if (++curSndId[1] >= sounds[curSndId[0]].length) {
+        if (++curSndId[1] >= (list[curSndId[0]].length) - 1) {
           curSndId[1] = 0;
           curSndId[0]++;
-          if (curSndId[0] >= sounds.length) {
+          if (curSndId[0] >= list.length) {
             curSndId[0] = 0;
           }
         }
+        
+        console.log(curSndId);
         startPlay2();
       }
     </script>
