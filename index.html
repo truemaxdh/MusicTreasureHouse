@@ -81,6 +81,8 @@
       }
       
       function startPlay2() {
+        console.log(list);
+        console.log(curSndId);
         var player = document.getElementById("player");
         player.src = list[curSndId[0]][curSndId[0]+1];
         player.load();
@@ -96,7 +98,6 @@
           }
         }
         
-        console.log(curSndId);
         startPlay2();
       }
     </script>
