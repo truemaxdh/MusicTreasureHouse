@@ -82,7 +82,8 @@
       
       function startPlay2() {
         var player = document.getElementById("player");
-        player.src = sounds[0][0];
+        player.src = list[0][1];
+        player.load();
         player.play();
       }
     </script>
