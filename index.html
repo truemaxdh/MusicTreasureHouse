@@ -82,16 +82,27 @@
       
       function startPlay2() {
         var player = document.getElementById("player");
-        player.src = list[0][1];
+        player.src = list[curSndId[0]][curSndId[0]+1];
         player.load();
         player.play();
+      }
+      
+      function playNext() {
+        if (++curSndId[1] >= sounds[curSndId[0]].length) {
+          curSndId[1] = 0;
+          curSndId[0]++;
+          if (curSndId[0] >= sounds.length) {
+            curSndId[0] = 0;
+          }
+        }
+        startPlay2();
       }
     </script>
   </head>
   <body>
     <div id="board"></div>
     <div>
-       <audio id="player" controls />
+       <audio id="player" controls onended="playNext()" />
     </div>
     <button onclick="startPlay()">Start Play</button>
     <button onclick="startPlay2()">Start Play2</button>
