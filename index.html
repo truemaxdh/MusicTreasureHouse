@@ -28,7 +28,7 @@
               console.log(list);
               
               showList();
-              loadSound();
+              //loadSound();
               
             } else {
               alert("failed to load data");
@@ -52,33 +52,7 @@
         }
         strHtml += "</ul>";
         board.innerHTML = strHtml;
-      }
-      
-      function loadSound() {
-        for (var i = 0; i < list.length; i++) {
-          sounds.push([]);
-          for (var j = 1; j < list[i].length; j++) {
-            sounds[i].push(new Audio(list[i][j]));
-            sounds[i][j - 1].volumn = 0.3;
-            sounds[i][j - 1].onended = function() {
-              if (++curSndId[1] >= sounds[curSndId[0]].length) {
-                curSndId[1] = 0;
-                curSndId[0]++;
-                if (curSndId[0] >= sounds.length) {
-                  curSndId[0] = 0;
-                }
-              }
-              
-              sounds[curSndId[0]][curSndId[1]].currentTime = 0;
-              sounds[curSndId[0]][curSndId[1]].play();
-            }
-          }
-        }
-      }
-      
-      function startPlay() {
-        sounds[0][0].play();
-      }
+      }           
       
       function startPlay2() {
         var player = document.getElementById("player");
@@ -105,8 +79,7 @@
     <div>
        <audio id="player" controls onended="playNext()" />
     </div>
-    <button onclick="startPlay()">Start Play</button>
-    <button onclick="startPlay2()">Start Play2</button>
+    <button onclick="startPlay2()">Play All</button>
     <!--Google AdSense -->
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- AutoResponse -->
