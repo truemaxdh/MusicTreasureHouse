@@ -84,12 +84,9 @@
         console.log(list);
         console.log(curSndId);
         var player = document.getElementById("player");
-        player.src = list[curSndId[0]][curSndId[0]+1];
-        console.log(player);
+        player.src = list[curSndId[0]][curSndId[1]+1];
         player.load();
-        console.log("load");
         player.play();
-        console.log("play");
       }
       
       function playNext() {
