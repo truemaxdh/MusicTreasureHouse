@@ -85,8 +85,11 @@
         console.log(curSndId);
         var player = document.getElementById("player");
         player.src = list[curSndId[0]][curSndId[0]+1];
+        console.log(player);
         player.load();
+        console.log("load");
         player.play();
+        console.log("play");
       }
       
       function playNext() {
@@ -109,5 +112,16 @@
     </div>
     <button onclick="startPlay()">Start Play</button>
     <button onclick="startPlay2()">Start Play2</button>
+    <!--Google AdSense -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- AutoResponse -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7307479428475282"
+         data-ad-slot="8718898251"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </body>
 </html>
