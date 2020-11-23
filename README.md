@@ -1,5 +1,5 @@
-# MusicCloud
-My composed music cloud
+# MusicTreasureHouse
+My composed music storage
 
 ## First Flight
 [FirstFlight.mp3](/MusicTreasureHouse/FirstFlight/FirstFlight.mp3)
@@ -34,4 +34,18 @@ My composed music cloud
 ## Some Quiet Afternoon
 [SomeQuietAfternoon.mscz](/MusicTreasureHouse/SomeQuietAfternoon/SomeQuietAfternoon.mscz)
 [SomeQuietAfternoon.mxl](/MusicTreasureHouse/SomeQuietAfternoon/SomeQuietAfternoon.mxl)
+[SomeQuietAfternoon.mid](/MusicTreasureHouse/SomeQuietAfternoon/SomeQuietAfternoon.mid)
 [SomeQuietAfternoon.mp3](/MusicTreasureHouse/SomeQuietAfternoon/SomeQuietAfternoon.mp3)
+
+## Arirang Troll
+[ArirangTroll.mscz](/MusicTreasureHouse/ArirangTroll/ArirangTroll.mscz)
+[ArirangTroll.mxl](/MusicTreasureHouse/ArirangTroll/ArirangTroll.mxl)
+[ArirangTroll.mid](/MusicTreasureHouse/ArirangTroll/ArirangTroll.mid)
+[ArirangTroll.mp3](/MusicTreasureHouse/ArirangTroll/ArirangTroll.mp3)
+
+## Canon
+[Canon.mscz](/MusicTreasureHouse/Canon/Canon.mscz)
+[Canon.mxl](/MusicTreasureHouse/Canon/Canon.mxl)
+[Canon.mid](/MusicTreasureHouse/Canon/Canon.mid)
+[Canon.mp3](/MusicTreasureHouse/Canon/Canon.mp3)
+
