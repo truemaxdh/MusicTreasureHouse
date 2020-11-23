@@ -47,7 +47,7 @@
         for (var i = 0; i < list.length; i++) {
           strHtml += "<li>" + list[i][0] + "<ul>";
           for (var j = 1; j < list[i].length; j++) {
-            strHtml += "<li>" + list[i][j] + "</li>";
+            strHtml += "<li><a onclick='playThis(" + i + "," + (j - 1) + ")'>" + list[i][j] + "</a></li>";
           }
           strHtml += "</ul></li>";
         }
@@ -73,12 +73,36 @@
         
         startPlay2();
       }
+      
+      function playPrev() {
+        if (--curSndId[1] < 0) {
+          curSndId[0]--;
+          if (curSndId[0] < 0) {
+            curSndId[0] = list.length - 1;
+          }
+          curSndId[1] = list[curSndId[0]].length) - 2;
+        }
+        
+        startPlay2();
+      }
+      
+      function playThis(id0, id1) {
+        curSndId[0] = id0;
+        curSndId[1] = id1;
+        
+        startPlay2();
+      }
     </script>
   </head>
   <body>
     <div>
       <audio id="player" controls onended="playNext()"></audio>
+    </div>
+    <div id="controller">
       <button onclick="startPlay2()">Play All</button>
+      <button onclick="playPrev()">|◁</button>
+      <button onclick="startPlay2()">▷</button>
+      <button onclick="playNext()">▷|</button>
     </div>
     <div id="board"></div>
     <!--Google AdSense -->
