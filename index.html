@@ -2,6 +2,8 @@
   <head>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <meta name="description" content="A storage of my made musics.">
+    <link rel="icon" href="https://truemaxdh.github.io/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://truemaxdh.github.io/Style/skin.css">
     <script>
       var list = [];
       var sounds = []; // sounds
@@ -75,11 +77,11 @@
     </script>
   </head>
   <body>
-    <div id="board"></div>
     <div>
        <audio id="player" controls onended="playNext()" />
+      <button onclick="startPlay2()">Play All</button>
     </div>
-    <button onclick="startPlay2()">Play All</button>
+    <div id="board"></div>
     <!--Google AdSense -->
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- AutoResponse -->
