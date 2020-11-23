@@ -63,7 +63,7 @@
       }
       
       function playNext() {
-        if (++curSndId[1] >= (list[curSndId[0]].length) - 1) {
+        if (++curSndId[1] >= (list[curSndId[0]].length - 1)) {
           curSndId[1] = 0;
           curSndId[0]++;
           if (curSndId[0] >= list.length) {
@@ -80,7 +80,7 @@
           if (curSndId[0] < 0) {
             curSndId[0] = list.length - 1;
           }
-          curSndId[1] = list[curSndId[0]].length) - 2;
+          curSndId[1] = list[curSndId[0]].length - 2;
         }
         
         startPlay2();
