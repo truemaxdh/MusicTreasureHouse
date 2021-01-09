@@ -49,3 +49,7 @@ My composed music storage
 [Canon.mid](/MusicTreasureHouse/Canon/Canon.mid)
 [Canon.mp3](/MusicTreasureHouse/Canon/Canon.mp3)
 
+
+## Space Trip
+[SpaceTrip.mscz](/MusicTreasureHouse/SpaceTrip/SpaceTrip.mscz)
+[SpaceTrip.mp3](/MusicTreasureHouse/SpaceTrip/SpaceTrip.mp3)
