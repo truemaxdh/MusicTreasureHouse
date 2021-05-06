@@ -8,6 +8,10 @@
       var list = [];
       var sounds = []; // sounds
       var curSndId = [0, 0];
+      const audCtx = new AudioContext();
+      let player;
+      let analyser;
+      let buffer;
       window.onload = function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -53,12 +57,24 @@
         }
         strHtml += "</ul>";
         board.innerHTML = strHtml;
+        
+        player = document.getElementById("player");
+        let src = audCtx.createMediaElementSource(player);
+        analyser = audCtx.createAnalyser();
+        src.connect(audCtx.destination);
+        src.connect(analyser);
+        analyser.fftSize = 256;
+        
+        const bufferLength = analyser.frequencyBinCount;
+        buffer = new Uint8Array(bufferLength);
+        
+        render();
       }           
       
       function startPlay2() {
         var titleDiv = document.getElementById("title");
         titleDiv.innerHTML = getTitle(list[curSndId[0]][curSndId[1]+1]);
-        var player = document.getElementById("player");
+        
         player.src = list[curSndId[0]][curSndId[1]+1];
         player.load();
         player.play();
@@ -99,11 +115,29 @@
         var sPos = path.lastIndexOf("/");
         return path.substring(sPos + 1);
       }
+      
+      function render(timestamp) {
+        analyser.getByteFrequencyData(buffer);
+        
+        const canvas = document.querySelector("#visualiser");
+        const ctx = canvas.getContext("2d");
+        const W = canvas.width, H = canvas.height;
+        ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+        ctx.fillRect(0, 0, W, H);
+        for(let i = 0; i < buffer.length; i++) {
+          let h = H * buffer[i] / 255;
+          ctx.fillStyle = "green";
+          ctx.fillRect(i * 2, H / 2 - h / 2, 2, h);
+        }        
+        
+        requestAnimationFrame(render);
+      }
     </script>
   </head>
   <body>
     <div>
       <div id="title">---</div>
+      <canvas id="visualizer"></canvas>
       <audio id="player" controls onended="playNext()"></audio>
     </div>
     <div id="controller">
