@@ -9,7 +9,6 @@
       var sounds = []; // sounds
       var curSndId = [0, 0];
       let audCtx = null;
-      let player;
       let analyser;
       let buffer;
       window.onload = function() {
@@ -62,19 +61,17 @@
       function startPlay2() {
         var titleDiv = document.getElementById("title");
         titleDiv.innerHTML = getTitle(list[curSndId[0]][curSndId[1]+1]);
-        
+        const player = document.getElementById("player");
         player.src = list[curSndId[0]][curSndId[1]+1];
         player.load();
         player.play();
         if (audCtx == null) {
-          audCtx = new AudioContext();
-          player = document.getElementById("player");
+          audCtx = new AudioContext();          
           let src = audCtx.createMediaElementSource(player);
           analyser = audCtx.createAnalyser();
           src.connect(audCtx.destination);
           src.connect(analyser);
           analyser.fftSize = 256;
-
           const bufferLength = analyser.frequencyBinCount;
           buffer = new Uint8Array(bufferLength);
 
