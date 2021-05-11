@@ -120,16 +120,14 @@
         
         const canvas = document.querySelector("#visualizer");
         const ctx = canvas.getContext("2d");
-        //const W = canvas.width, H = canvas.height;
-        const W = canvas.clientWidth, H = canvas.clientHeight;
-        console.log(W + "," + H + "," + canvas.width + "," + canvas.height);
+        const W = canvas.width, H = canvas.height;
         ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
         ctx.fillRect(0, 0, W, H);
         const w = W / buffer.length;
         for(let i = 0; i < buffer.length; i++) {
           let h = H * buffer[i] / 255;
           ctx.fillStyle = "green";
-          ctx.fillRect(i * w, H / 2 - h / 2, w, h);
+          ctx.fillRect(i * W / buffer.length, (H - h) / 2, W / buffer.length, h);
         }        
         
         requestAnimationFrame(render);
