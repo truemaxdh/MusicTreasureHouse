@@ -120,7 +120,9 @@
         
         const canvas = document.querySelector("#visualizer");
         const ctx = canvas.getContext("2d");
-        const W = canvas.width, H = canvas.height;
+        //const W = canvas.width, H = canvas.height;
+        const W = canvas.clientWidth, H = canvas.clientHeight;
+        console.log(W + "," + H + "," + canvas.width + "," + canvas.height);
         ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
         ctx.fillRect(0, 0, W, H);
         const w = W / buffer.length;
