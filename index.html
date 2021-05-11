@@ -123,10 +123,11 @@
         const W = canvas.width, H = canvas.height;
         ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
         ctx.fillRect(0, 0, W, H);
+        const w = W / buffer.length;
         for(let i = 0; i < buffer.length; i++) {
           let h = H * buffer[i] / 255;
           ctx.fillStyle = "green";
-          ctx.fillRect(i * 2, H / 2 - h / 2, 2, h);
+          ctx.fillRect(i * w, H / 2 - h / 2, w, h);
         }        
         
         requestAnimationFrame(render);
@@ -136,15 +137,16 @@
   <body>
     <div>
       <div id="title">---</div>
-      <canvas id="visualizer"></canvas><br>
-      <audio id="player" controls onended="playNext()"></audio>
+      <canvas id="visualizer" width="100%"></canvas><br>
+      <audio id="player" width="100%"  controls onended="playNext()"></audio>
+    
+      <div id="controller">
+        <button onclick="startPlay2()">▷ Play All</button>
+        <button onclick="playPrev()">|◁</button>
+        <button onclick="playNext()">▷|</button>
+      </div>
+      <div id="board"></div>
     </div>
-    <div id="controller">
-      <button onclick="startPlay2()">▷ Play All</button>
-      <button onclick="playPrev()">|◁</button>
-      <button onclick="playNext()">▷|</button>
-    </div>
-    <div id="board"></div>
     <!--Google AdSense -->
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- AutoResponse -->
