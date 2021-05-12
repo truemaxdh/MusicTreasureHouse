@@ -12,6 +12,7 @@
       let analyser;
       let buffer;
       let renderMode = Math.floor(Math.random() * 2);
+      let r = 0, g = 255, b = 0;
       window.onload = function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -179,9 +180,16 @@
       }
       
       function getRndRGB() {
-        const r = Math.floor(Math.random() * 256);
-        const g = Math.floor(Math.random() * 256);
-        const b = Math.floor(Math.random() * 256);
+        r++;
+        if (r > 255) {
+          r = 0; 
+          g++;
+          if (g > 255) {
+            g = 0;
+            b++
+            if (b > 255) b = 0;
+          }
+        }
         return "rgb(" + r + "," + g + "," + b + ")";
       }
     </script>
