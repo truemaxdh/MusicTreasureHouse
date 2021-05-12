@@ -5,12 +5,13 @@
     <link rel="icon" href="https://truemaxdh.github.io/icon.png" type="image/png">
     <link rel="stylesheet" href="https://truemaxdh.github.io/Style/skin.css">
     <script>
-      var list = [];
-      var sounds = []; // sounds
-      var curSndId = [0, 0];
+      let list = [];
+      let sounds = []; // sounds
+      let curSndId = [0, 0];
       let audCtx = null;
       let analyser;
       let buffer;
+      let renderMode = Math.random() * 4;
       window.onload = function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -123,14 +124,65 @@
         const W = canvas.width, H = canvas.height;
         ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
         ctx.fillRect(0, 0, W, H);
+        switch(renderMode) {
+          case 0:
+            renderMode0(ctx, W, H, buffer);
+            break;
+          case 1:
+            renderMode1(ctx, W, H, buffer);
+            break;
+          case 2:
+            renderMode2(ctx, W, H, buffer);
+            break;
+          case 3:
+            renderMode3(ctx, W, H, buffer);
+            break;
+        }
+        
+        requestAnimationFrame(render);
+      }
+      
+      function renderMode0(ctx, W, H, buffer) {
         const w = W / buffer.length;
         for(let i = 0; i < buffer.length; i++) {
           let h = H * buffer[i] / 255;
           ctx.fillStyle = "green";
           ctx.fillRect(i * W / buffer.length, (H - h) / 2, W / buffer.length, h);
-        }        
-        
-        requestAnimationFrame(render);
+        }
+      }
+      
+      function renderMode1(ctx, W, H, buffer) {
+        const h = H / buffer.length;
+        for(let i = 0; i < buffer.length; i++) {
+          let w = W * buffer[i] / 255;
+          ctx.fillStyle = "green";
+          ctx.fillRect((W - w) / 2, H, w, H - i * h);
+        }
+      }
+      
+      function renderMode2(ctx, W, H, buffer) {
+        const w = W / buffer.length;
+        for(let i = 0; i < buffer.length; i++) {
+          let h = H * buffer[i] / 255;
+          ctx.fillStyle = getRndRGB();
+          ctx.fillRect(i * W / buffer.length, (H - h) / 2, W / buffer.length, h);
+        }
+      }
+      
+      function renderMode3(ctx, W, H, buffer) {
+        const h = H / buffer.length;
+        for(let i = 0; i < buffer.length; i++) {
+          let w = W * buffer[i] / 255;
+          ctx.fillStyle = getRndRGB();
+          ctx.fillRect((W - w) / 2, H, w, H - i * h);
+        }
+      }
+      
+      function getRndRGB() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + "," + g + "," + b + ")";
       }
     </script>
     <style>
