@@ -11,7 +11,7 @@
       let audCtx = null;
       let analyser;
       let buffer;
-      let renderMode = Math.random() * 4;
+      let renderMode = Math.flor(Math.random() * 4);
       window.onload = function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
