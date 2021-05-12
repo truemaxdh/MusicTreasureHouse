@@ -156,7 +156,7 @@
         for(let i = 0; i < buffer.length; i++) {
           let w = W * buffer[i] / 255;
           ctx.fillStyle = "green";
-          ctx.fillRect((W - w) / 2, H, w, H - i * h);
+          ctx.fillRect((W - w) / 2, H - i * h, w, H - i * h - h);
         }
       }
       
@@ -174,7 +174,7 @@
         for(let i = 0; i < buffer.length; i++) {
           let w = W * buffer[i] / 255;
           ctx.fillStyle = getRndRGB();
-          ctx.fillRect((W - w) / 2, H, w, H - i * h);
+          ctx.fillRect((W - w) / 2, H - i * h, w, H - i * h - h);
         }
       }
       
