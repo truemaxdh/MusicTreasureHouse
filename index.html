@@ -11,7 +11,7 @@
       let audCtx = null;
       let analyser;
       let buffer;
-      let renderMode = Math.floor(Math.random() * 2);
+      let renderMode;
       let rgb = [0, 255, 0], d = [1, -1, 1];
       window.onload = function() {
         var xhttp = new XMLHttpRequest();
@@ -67,6 +67,7 @@
         player.src = list[curSndId[0]][curSndId[1]+1];
         player.load();
         player.play();
+        renderMode = Math.floor(Math.random() * 2);
         if (audCtx == null) {
           audCtx = new AudioContext();          
           let src = audCtx.createMediaElementSource(player);
