@@ -67,7 +67,7 @@
         player.src = list[curSndId[0]][curSndId[1]+1];
         player.load();
         player.play();
-        renderMode = Math.floor(Math.random() * 2);
+        renderMode = Math.floor(Math.random() * 4);
         if (audCtx == null) {
           audCtx = new AudioContext();          
           let src = audCtx.createMediaElementSource(player);
