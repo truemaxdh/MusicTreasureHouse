@@ -12,7 +12,7 @@
       let analyser;
       let buffer;
       let renderMode = Math.floor(Math.random() * 2);
-      let r = 0, g = 255, b = 0;
+      let rgb = [0, 255, 0], d = [1, -1, 1];
       window.onload = function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -180,17 +180,22 @@
       }
       
       function getRndRGB() {
-        r++;
-        if (r > 255) {
-          r = 0; 
-          g++;
-          if (g > 255) {
-            g = 0;
-            b++
-            if (b > 255) b = 0;
+        rgb[0] += d[0];
+        if (rgb[0] > 255 || rgb[0] < 0) {
+          d[0] *= -1;
+          rgb[0] += d[0];
+          rgb[1] += d[1];
+          if (rgb[1] > 255 || rgb[1] < 0) {
+            d[1] *= -1;
+            rgb[1] += d[1];
+            rgb[2] += d[2];
+            if (rgb[2] > 255 || rgb[2] < 0) {
+              d[2] *= -1;
+              rgb[2] += d[2];
+            }
           }
         }
-        return "rgb(" + r + "," + g + "," + b + ")";
+        return "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ")";
       }
     </script>
     <style>
