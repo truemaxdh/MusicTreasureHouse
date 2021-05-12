@@ -163,18 +163,20 @@
       
       function renderMode2(ctx, W, H, buffer) {
         const w = W / buffer.length;
+        const color = getRndRGB();
         for(let i = 0; i < buffer.length; i++) {
           let h = H * buffer[i] / 255;
-          ctx.fillStyle = getRndRGB();
+          ctx.fillStyle = color;
           ctx.fillRect(i * W / buffer.length, (H - h) / 2, W / buffer.length, h);
         }
       }
       
       function renderMode3(ctx, W, H, buffer) {
         const h = H / buffer.length;
+        const color = getRndRGB();
         for(let i = 0; i < buffer.length; i++) {
           let w = W * buffer[i] / 255;
-          ctx.fillStyle = getRndRGB();
+          ctx.fillStyle = color;
           ctx.fillRect((W - w) / 2, H - i * h, w, H - i * h - h);
         }
       }
