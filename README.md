@@ -57,4 +57,4 @@ My composed music storage
 [Youtube_2002.ytb](https://www.youtube.com/watch?v=Il-an3K9pjg)
 
 ## Arirang(Youtube)
-[Youtube_Arirang.ytb](https://www.youtube.com/watch?v=Il-8hrmp-vMiwY)
+[Youtube_Arirang.ytb](https://www.youtube.com/watch?v=8hrmp-vMiwY)
